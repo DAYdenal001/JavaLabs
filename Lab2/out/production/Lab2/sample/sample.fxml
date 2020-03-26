@@ -8,18 +8,13 @@
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar fx:id="menuBar">
-              <menus>
-                <Menu fx:id="menu" mnemonicParsing="false" text="Файл">
-                  <items>
-                    <MenuItem fx:id="exitBtn" mnemonicParsing="false" onAction="#Exit" text="Выход" />
-                      <MenuItem fx:id="infoBtn" mnemonicParsing="false" text="О программе" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <HBox prefHeight="37.0" prefWidth="600.0">
+            <HBox fx:id="hBox" prefHeight="37.0" prefWidth="600.0">
                <children>
+                  <Label text="Выберите параметр">
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
                   <ChoiceBox fx:id="parametrSelect" prefWidth="150.0">
                      <opaqueInsets>
                         <Insets />
@@ -33,17 +28,9 @@
                         <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="searchBtn" mnemonicParsing="false" text="Найти">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
-            <TableView>
+            <TableView fx:id="table">
               <columns>
                 <TableColumn fx:id="firstName" prefWidth="75.0" text="Имя" />
                 <TableColumn fx:id="secondName" prefWidth="75.0" text="Фамилия" />

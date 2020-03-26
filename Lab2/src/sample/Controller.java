@@ -2,99 +2,101 @@ package sample;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 
 public class Controller {
+    private ObservableList<Intern> internData = FXCollections.observableArrayList();
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private MenuBar menuBar;
-
-    @FXML
-    private Menu menu;
-
-    @FXML
-    private MenuItem exitBtn;
-
-    @FXML
-    private MenuItem infoBtn;
-
-    @FXML
-    private HBox hBox;
-
-    @FXML
-    private ChoiceBox<?> parametrSelect;
+    private ChoiceBox<String> parametrSelect;
 
     @FXML
     private TextField textVew;
 
     @FXML
-    private Button searchBtn;
+    private TableView<Intern> table;
 
     @FXML
-    private TableView<?> table;
+    private TableColumn<Intern, String> firstName;
 
     @FXML
-    private TableColumn<?, ?> firstName;
+    private TableColumn<Intern, String> secondName;
 
     @FXML
-    private TableColumn<?, ?> secondName;
+    private TableColumn<Intern, Integer> salary;
 
     @FXML
-    private TableColumn<?, ?> salary;
+    private TableColumn<Intern, Integer> hours;
 
     @FXML
-    private TableColumn<?, ?> hours;
+    private TableColumn<Intern, String> department;
+
 
     @FXML
-    private TableColumn<?, ?> department;
+    private void initialize() {
+        ObservableList<String> fields = FXCollections.observableArrayList("Имя", "Фамилия", "Зарплата", "Рабочие часы", "Отдел");
+        parametrSelect.setItems(fields);
 
-    @FXML
-    void About(ActionEvent event) {
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        secondName.setCellValueFactory(new PropertyValueFactory<>("secondName"));
+        salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        hours.setCellValueFactory(new PropertyValueFactory<>("hours"));
+        department.setCellValueFactory(new PropertyValueFactory<>("department"));
 
-    }
+        internData.add(new Intern("Ivan","Ivanov",30000,40,"Dev"));
+        internData.add(new Intern("Petrov","Petr",50000,35,"Design"));
+        internData.add(new Intern("Gordienko","Nastya",15000,45,"Manager"));
+        internData.add(new Intern("Semenov","Semenov",90000,20,"Admin"));
+        internData.add(new Intern("Petrov","Petr",50000,35,"Design"));
+        internData.add(new Intern("Gordienko","Nastya",15000,45,"Manager"));
 
-    @FXML
-    void Exit(ActionEvent event) {
+        FilteredList<Intern> filteredData = new FilteredList<>(internData, b -> true);
+        textVew.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(intern -> {
+                // Если текст фильтра пуст, показать всех интернов.
 
-    }
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
 
-    @FXML
-    void Search(ActionEvent event) {
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
 
-    }
+                switch (parametrSelect.getValue()) {
+                    case "Имя":
+                        return intern.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1;
 
-    @FXML
-    void initialize() {
-        assert menuBar != null : "fx:id=\"menuBar\" was not injected: check your FXML file 'sample.fxml'.";
-        assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'sample.fxml'.";
-        assert exitBtn != null : "fx:id=\"exitBtn\" was not injected: check your FXML file 'sample.fxml'.";
-        assert infoBtn != null : "fx:id=\"infoBtn\" was not injected: check your FXML file 'sample.fxml'.";
-        assert hBox != null : "fx:id=\"hBox\" was not injected: check your FXML file 'sample.fxml'.";
-        assert parametrSelect != null : "fx:id=\"parametrSelect\" was not injected: check your FXML file 'sample.fxml'.";
-        assert textVew != null : "fx:id=\"textVew\" was not injected: check your FXML file 'sample.fxml'.";
-        assert searchBtn != null : "fx:id=\"searchBtn\" was not injected: check your FXML file 'sample.fxml'.";
-        assert table != null : "fx:id=\"table\" was not injected: check your FXML file 'sample.fxml'.";
-        assert firstName != null : "fx:id=\"firstName\" was not injected: check your FXML file 'sample.fxml'.";
-        assert secondName != null : "fx:id=\"secondName\" was not injected: check your FXML file 'sample.fxml'.";
-        assert salary != null : "fx:id=\"salary\" was not injected: check your FXML file 'sample.fxml'.";
-        assert hours != null : "fx:id=\"hours\" was not injected: check your FXML file 'sample.fxml'.";
-        assert department != null : "fx:id=\"department\" was not injected: check your FXML file 'sample.fxml'.";
+                    case "Фаимия":
+                        return intern.getSecondName().toLowerCase().indexOf(lowerCaseFilter) != -1;
+                    case "Зарплата":
+                        return String.valueOf(intern.getSalary()).indexOf(lowerCaseFilter) != -1;
+                    case "Рабочие часы":
+                        return String.valueOf(intern.getHours()).indexOf(lowerCaseFilter) != -1;
+                    case "Отдел":
+                        return intern.getDepartment().toLowerCase().indexOf(lowerCaseFilter) != -1;
+                    default:
+                        System.out.println();
+                }
+                return false;
+            });
+        });
+        // 3. Оберните FilteredList в SortedList.
+        SortedList<Intern> sortedData = new SortedList<>(filteredData);
 
+        // 4. Свяжите компаратор SortedList с компаратором TableView.
+        // В противном случае сортировка TableView не будет иметь никакого эффекта.
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+
+        // 5. Добавить отсортированные (и отфильтрованные) данные в таблицу.
+        table.setItems(sortedData);
     }
 }
