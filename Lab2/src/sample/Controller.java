@@ -75,7 +75,7 @@ public class Controller {
                     case "Имя":
                         return intern.getFirstName().toLowerCase().indexOf(lowerCaseFilter) != -1;
 
-                    case "Фаимия":
+                    case "Фамилия":
                         return intern.getSecondName().toLowerCase().indexOf(lowerCaseFilter) != -1;
                     case "Зарплата":
                         return String.valueOf(intern.getSalary()).indexOf(lowerCaseFilter) != -1;
