@@ -12,7 +12,7 @@ public class CsvAdapter {
     public static ArrayList<String[]> Reader() throws Exception
     {
         ArrayList<String []> data = new ArrayList<>();
-        CSVReader reader = new CSVReader(new FileReader("data.csv"), ';' , '\0' , 0);
+        CSVReader reader = new CSVReader(new FileReader("data.csv"), ',' , '\0' , 0);
         String[] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             if (nextLine != null) {
@@ -23,7 +23,7 @@ public class CsvAdapter {
     }
     public void CsvWriter (ArrayList<String []> fileData, String pathToTheFile) throws IOException
     {
-        CSVWriter writer = new CSVWriter(new FileWriter(pathToTheFile), ';', '\0');
+        CSVWriter writer = new CSVWriter(new FileWriter(pathToTheFile), ',', '\0');
         for (String[] string:fileData)
         {
             writer.writeNext(string);
