@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="models.StafferEntity" table="staffer" schema="public" catalog="lab4">
+        <id name="id">
+            <column name="id" sql-type="integer"/>
+        </id>
+        <property name="typeemployee">
+            <column name="typeemployee" sql-type="char(50)" length="50" />
+        </property>
+        <property name="firstname">
+            <column name="firstname" sql-type="char(50)" length="50" />
+        </property>
+        <property name="secondname">
+            <column name="secondname" sql-type="char(50)" length="50" />
+        </property>
+        <property name="salary">
+            <column name="salary" sql-type="integer" />
+        </property>
+        <property name="hours">
+            <column name="hours" sql-type="integer" />
+        </property>
+        <property name="department">
+            <column name="department" sql-type="char(50)" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>
