@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70bea4c3-4526-4232-99b7-c7120eddae68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/Assistant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/ClassCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/Serializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/Staffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/aleksandrdenisov/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/src/main/java/DatabaseDataPreparer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab3/src/main/java/DatabaseManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/src/main/java/Assistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/src/main/java/Assistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/src/main/java/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/src/main/java/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/src/main/java/Staffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/src/main/java/Staffer.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,15 +29,21 @@
   </component>
   <component name="ProjectId" id="1XzreLJHGKzfOXdg3kAFZwCZIvZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -52,18 +56,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="A:\Project\Java\Lab1" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -98,23 +90,29 @@
       <workItem from="1582145034034" duration="2984000" />
       <workItem from="1582195234297" duration="3102000" />
       <workItem from="1582204530075" duration="4772000" />
+      <workItem from="1589064591479" duration="305000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589064745859">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1589064745859" />
   </component>
 </project>
